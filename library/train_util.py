@@ -1711,7 +1711,7 @@ class FlashAttentionFunction(torch.autograd.function.Function):
         return dq, dk, dv, None, None, None, None
 
 
-def replace_unet_modules(unet: diffusers.models.unet_2d_condition.UNet2DConditionModel, mem_eff_attn, xformers):
+def replace_unet_modules(unet: diffusers.models.unets.unet_2d_condition, mem_eff_attn, xformers):
     if mem_eff_attn:
         replace_unet_cross_attn_to_memory_efficient()
     elif xformers:
